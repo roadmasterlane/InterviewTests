@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ReverseArray
 {
@@ -11,7 +12,7 @@ namespace ReverseArray
     {
         static void Main(string[] args)
         {
-            PrintPascalTriangles(5);
+            Console.WriteLine(ComputeExponentialValue(2, 4));
             Console.Read();
         }
 
@@ -107,6 +108,18 @@ namespace ReverseArray
 
 
             }
+        }
+        static int ComputeExponentialValue(int baseValue,int power)
+        {
+            
+            // calculate a^b
+            if (power==0)
+            {
+                return 1;
+            }
+           
+            return baseValue * ComputeExponentialValue(baseValue,power-1);
+
         }
     }
 }
