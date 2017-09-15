@@ -12,7 +12,7 @@ namespace ReverseArray
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(ComputeExponentialValue(2, 4));
+            Console.WriteLine(Modulus(18,8));
             Console.Read();
         }
 
@@ -120,6 +120,14 @@ namespace ReverseArray
            
             return baseValue * ComputeExponentialValue(baseValue,power-1);
 
+        }
+
+        static int Modulus(int dividend, int divisor)
+        {
+            int remainder = 0;
+            int temp = dividend / divisor;
+            remainder = dividend - (divisor * temp);
+            return remainder;
         }
     }
 }
