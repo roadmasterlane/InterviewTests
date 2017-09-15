@@ -72,38 +72,41 @@ namespace ReverseArray
 
         static void PrintPascalTriangles(int level)
         {
-            int[,] PascalArray = new int[level+1,level+1];
+            int[,]PascalArray = new int[level,level];
             for (int rowIndex = 0; rowIndex < level; rowIndex++)
             {
-                for (int col = 0; col <= rowIndex; col++)
+                for (int colIndex = 0; colIndex <= rowIndex; colIndex++)
                 {
-                    if (rowIndex==col)
+                    if (rowIndex==colIndex)
                     {
-                        PascalArray[rowIndex, col] = 1;
-                        Console.Write(PascalArray[rowIndex,col]);
+                        PascalArray[rowIndex, colIndex] = 1;
+                        Console.Write(PascalArray[rowIndex,colIndex]);
                         Console.Write(" ");
-                        continue;
                     }
 
-                    else if (col == 0)
+                    else if (colIndex==0)
                     {
-                        PascalArray[rowIndex, col] = 1;
-                        Console.Write(PascalArray[rowIndex, col]);
-                        Console.Write(" ");
+                        PascalArray[rowIndex, colIndex] = 1;
 
-                        continue;
+                        Console.Write(PascalArray[rowIndex, colIndex]);
+                        Console.Write(" ");
                     }
 
-                    
-                        PascalArray[rowIndex, col] =
-                            PascalArray[rowIndex - 1, col - 1] + PascalArray[rowIndex - 1, col];
-                        
-                    Console.Write(PascalArray[rowIndex,col]);
-                    Console.Write(" ");
+                    else
+                    {
+                        PascalArray[rowIndex, colIndex] = PascalArray[rowIndex - 1, colIndex - 1] +
+                                                          PascalArray[rowIndex - 1, colIndex];
+
+                        Console.Write(PascalArray[rowIndex,colIndex]);
+                        Console.Write(" ");
+                    }
+
                 }
-                Console.WriteLine("\n");
-            }
+                Console.Write("\n");
 
+
+
+            }
         }
     }
 }
