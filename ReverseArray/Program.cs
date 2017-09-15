@@ -72,8 +72,38 @@ namespace ReverseArray
 
         static void PrintPascalTriangles(int level)
         {
+            int[,] PascalArray = new int[level+1,level+1];
+            for (int rowIndex = 0; rowIndex < level; rowIndex++)
+            {
+                for (int col = 0; col <= rowIndex; col++)
+                {
+                    if (rowIndex==col)
+                    {
+                        PascalArray[rowIndex, col] = 1;
+                        Console.Write(PascalArray[rowIndex,col]);
+                        Console.Write(" ");
+                        continue;
+                    }
+
+                    else if (col == 0)
+                    {
+                        PascalArray[rowIndex, col] = 1;
+                        Console.Write(PascalArray[rowIndex, col]);
+                        Console.Write(" ");
+
+                        continue;
+                    }
+
+                    
+                        PascalArray[rowIndex, col] =
+                            PascalArray[rowIndex - 1, col - 1] + PascalArray[rowIndex - 1, col];
+                        
+                    Console.Write(PascalArray[rowIndex,col]);
+                    Console.Write(" ");
+                }
+                Console.WriteLine("\n");
+            }
 
         }
-
     }
 }
