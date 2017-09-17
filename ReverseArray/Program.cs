@@ -8,11 +8,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ReverseArray
 {
-    class Program
+    [TestClass]
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(ReverseString("hello").ToString());
+            //FindFirstNonRepeatingCharacterWithIndex("hello");
             Console.Read();
         }
 
@@ -149,5 +150,37 @@ namespace ReverseArray
 
             return new string(array);
         }
+
+        static void FindFirstRepeatingCharacterWithIndex(string input)
+        {
+           
+            char[] charArray = new char[input.Length];
+            for (int j = 0; j < charArray.Length; j++)
+            {
+                if (charArray.Contains(input[j]))
+                {
+                    Console.WriteLine("first character is: " + input[j] + 
+                        " index is " + j);
+                }
+                else
+                {
+                    charArray[j] = input[j];
+                }
+            }
+
+            
+        }
+
+        [TestMethod]
+        public void FindFirstNonRepeatingCharacterWithIndex()
+        {
+           string input = "hello";
+            char charValue = input.FirstOrDefault(p => input.IndexOf(p) == input.LastIndexOf(p));
+            // ie. whether we go from from or come from back ....the index matches
+            Assert.AreEqual(input,"hello");
+        }
+
+       
+
     }
 }
