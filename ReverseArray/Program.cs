@@ -12,7 +12,7 @@ namespace ReverseArray
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Modulus(18,8));
+            Console.WriteLine(ReverseString("hello").ToString());
             Console.Read();
         }
 
@@ -128,6 +128,26 @@ namespace ReverseArray
             int temp = dividend / divisor;
             remainder = dividend - (divisor * temp);
             return remainder;
+        }
+
+        static int SquareRoot(int input)
+        {
+            return 0;
+            // if input is 25 then the result is 5 but if 
+            // it is not a perfect square root then return 0
+
+        }
+
+        static string ReverseString(string s)
+        {
+            int forward = 0;
+            char[] array = new char[s.Length];
+            for (int jIndex =s.Length-1 ; jIndex >=0 ; jIndex--)
+            {
+                array[jIndex] = s[forward++];
+            }
+
+            return new string(array);
         }
     }
 }
